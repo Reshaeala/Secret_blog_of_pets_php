@@ -35,22 +35,24 @@ class Post {
 
 class Posts {
   static function all(){
-    $posts = array();
+    return getenv('DATABASE_URL');
 
-    $result = pg_query("SELECT * FROM post");
-
-    $row_object = pg_fetch_object($result);
-    while($row_object){
-      $new_post = new Post(
-        intval($row_object->id),
-        $row_object->name,
-        $row_object->image,
-        $row_object->body
-      );
-      $posts[] = $new_post;
-      $row_object = pg_fetch_object($result);
-    }
-    return $posts;
+    // $posts = array();
+    //
+    // $result = pg_query("SELECT * FROM post");
+    //
+    // $row_object = pg_fetch_object($result);
+    // while($row_object){
+    //   $new_post = new Post(
+    //     intval($row_object->id),
+    //     $row_object->name,
+    //     $row_object->image,
+    //     $row_object->body
+    //   );
+    //   $posts[] = $new_post;
+    //   $row_object = pg_fetch_object($result);
+    // }
+    // return $posts;
   }
 
   static function create($posts){

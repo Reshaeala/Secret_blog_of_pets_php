@@ -4,7 +4,8 @@ header('Content-Type: application/json');
 
 if ($_REQUEST['action'] === 'index') {
   // echo json_encode(Posts::all());
-  echo "hello";
+  echo Posts::all();
+  // echo "hello";
 } elseif ($_REQUEST['action'] === 'post') {
   $request_body = file_get_contents('php://input');
   $body_object = json_decode($request_body);
