@@ -35,12 +35,10 @@ class Post {
 
 class Posts {
   static function all(){
-    return getenv('DATABASE_URL');
+    $posts = array();
 
-    // $posts = array();
-    //
-    // $result = pg_query("SELECT * FROM post");
-    //
+    $result = pg_query("SELECT * FROM post");
+    return "something";
     // $row_object = pg_fetch_object($result);
     // while($row_object){
     //   $new_post = new Post(
