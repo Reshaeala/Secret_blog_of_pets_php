@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^posts$ controllers/posts.php?action=index
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^posts$ controllers/posts.php?action=create
+
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=update&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=delete&id=$1
