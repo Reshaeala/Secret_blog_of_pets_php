@@ -53,9 +53,9 @@ class Posts {
     return $posts;
   }
 
-  static function create($post){
+  static function create($posts){
     $query = "INSERT INTO post (name, image, body) VALUES ($1, $2, $3)";
-    $query_params = array($post->name, $post->image, $post->body);
+    $query_params = array($posts->name, $posts->image, $posts->body);
     pg_query_params($query, $query_params);
     return self::all();
   }
