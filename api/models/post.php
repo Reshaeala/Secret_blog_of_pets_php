@@ -50,8 +50,8 @@ class Posts {
       $posts[] = $new_post;
       $row_object = pg_fetch_object($result);
     }
-    // return $posts;
-    return "something";
+    return $posts;
+    // return "something";
   }
 
   static function create($posts){

@@ -3,8 +3,8 @@ include_once __DIR__ .'/../models/post.php';
 header('Content-Type: application/json');
 
 if ($_REQUEST['action'] === 'index') {
-  // echo json_encode(Posts::all());
-  echo Posts::all();
+  echo json_encode(Posts::all());
+  // echo Posts::all();
   // echo "hello";
 } elseif ($_REQUEST['action'] === 'post') {
   $request_body = file_get_contents('php://input');
