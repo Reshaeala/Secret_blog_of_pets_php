@@ -38,8 +38,8 @@ class Posts {
     $posts = array();
 
     $result = pg_query("SELECT * FROM post");
-    return "something";
-    // $row_object = pg_fetch_object($result);
+
+    $row_object = pg_fetch_object($result);
     // while($row_object){
     //   $new_post = new Post(
     //     intval($row_object->id),
@@ -51,6 +51,7 @@ class Posts {
     //   $row_object = pg_fetch_object($result);
     // }
     // return $posts;
+    return "something";
   }
 
   static function create($posts){
