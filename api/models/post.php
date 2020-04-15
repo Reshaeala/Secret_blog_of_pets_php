@@ -40,16 +40,16 @@ class Posts {
     $result = pg_query("SELECT * FROM post");
 
     $row_object = pg_fetch_object($result);
-    // while($row_object){
-    //   $new_post = new Post(
-    //     intval($row_object->id),
-    //     $row_object->name,
-    //     $row_object->image,
-    //     $row_object->body
-    //   );
-    //   $posts[] = $new_post;
-    //   $row_object = pg_fetch_object($result);
-    // }
+    while($row_object){
+      $new_post = new Post(
+        intval($row_object->id),
+        $row_object->name,
+        $row_object->image,
+        $row_object->body
+      );
+      $posts[] = $new_post;
+      $row_object = pg_fetch_object($result);
+    }
     // return $posts;
     return "something";
   }
