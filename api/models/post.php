@@ -69,7 +69,7 @@ class Posts {
       $query_params = array($updated_post->name,
       $updated_post->title,
        $updated_post->avatar, $updated_post->body, $updated_post->id);
-
+      $result = pg_query_params($query, $query_params);
       return self::all();
     }
     static function delete($id){
