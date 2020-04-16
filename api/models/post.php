@@ -64,21 +64,18 @@ class Posts {
     return self::all();
   }
 
-
   static function update($updated_post){
       $query = "UPDATE post SET name = $1, title = $2, avatar = $3, body = $4 WHERE id = $5";
       $query_params = array($updated_post->name,
       $updated_post->title,
        $updated_post->avatar, $updated_post->body, $updated_post->id);
       $result = pg_query_params($query, $query_params);
-
       return self::all();
     }
     static function delete($id){
       $query = "DELETE FROM post WHERE id = $1";
       $query_params = array($id);
       $result = pg_query_params($query, $query_params);
-
       return self::all();
     }
 }
