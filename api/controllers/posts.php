@@ -6,7 +6,7 @@ if ($_REQUEST['action'] === 'index') {
   echo json_encode(Posts::all());
   // echo Posts::all();
   // echo "hello";
-} elseif ($_REQUEST['action'] === 'post') {
+} elseif ($_REQUEST['action'] === 'create') {
   $request_body = file_get_contents('php://input');
   $body_object = json_decode($request_body);
   $new_post = new Post(null, $body_object->name,$body_object->title, $body_object->avatar, $body_object->body);

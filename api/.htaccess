@@ -1,6 +1,3 @@
-Header always set Access-Control-Allow-Origin "*"
-Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
-Header always set Access-Control-Allow-Headers "Content-Type"
 
 RewriteEngine On
 
@@ -8,7 +5,7 @@ RewriteCond %{REQUEST_METHOD} ^GET$
 RewriteRule ^posts$ controllers/posts.php?action=index
 
 RewriteCond %{REQUEST_METHOD} ^POST$
-RewriteRule ^posts$ controllers/posts.php?action=post
+RewriteRule ^posts$ controllers/posts.php?action=create
 
 RewriteCond %{REQUEST_METHOD} ^PUT$
 RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=update&id=$1
