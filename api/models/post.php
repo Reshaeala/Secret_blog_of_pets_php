@@ -55,25 +55,26 @@ class Posts {
   }
 
   static function create($posts){
+    echo "working";
     $query = "INSERT INTO post (name, image, body) VALUES ($1, $2, $3)";
     $query_params = array($posts->name, $posts->image, $posts->body);
     pg_query_params($query, $query_params);
     return self::all();
   }
 
-  // static function update($updated_post){
-  //     $query = "UPDATE post SET name = $1, image = $2, body = $3 WHERE id = $4";
-  //     $query_params = array($updated_post->name, $updated_post->image, $updated_post->body, $updated_post->id);
-  //     $result = pg_query_params($query, $query_params);
-  //
-  //     return self::all();
-  //   }
-  //   static function delete($id){
-  //     $query = "DELETE FROM post WHERE id = $1";
-  //     $query_params = array($id);
-  //     $result = pg_query_params($query, $query_params);
-  //
-  //     return self::all();
-  //   }
+  static function update($updated_post){
+      $query = "UPDATE post SET name = $1, image = $2, body = $3 WHERE id = $4";
+      $query_params = array($updated_post->name, $updated_post->image, $updated_post->body, $updated_post->id);
+      $result = pg_query_params($query, $query_params);
+
+      return self::all();
+    }
+    static function delete($id){
+      $query = "DELETE FROM post WHERE id = $1";
+      $query_params = array($id);
+      $result = pg_query_params($query, $query_params);
+
+      return self::all();
+    }
 }
  ?>
