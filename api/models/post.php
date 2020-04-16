@@ -56,10 +56,10 @@ class Posts {
 
   static function create($posts){
     echo "working";
-    // $query = "INSERT INTO post (name, image, body) VALUES ($1, $2, $3)";
-    // $query_params = array($posts->name, $posts->image, $posts->body);
-    // pg_query_params($query, $query_params);
-    // return self::all();
+    $query = "INSERT INTO post (name, image, body) VALUES ($1, $2, $3)";
+    $query_params = array($posts->name, $posts->image, $posts->body);
+    pg_query_params($query, $query_params);
+    return self::all();
   }
 
   static function update($updated_post){
