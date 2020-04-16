@@ -22,14 +22,15 @@ if(getenv('DATABASE_URL')){
 class Post {
   public $id;
   public $name;
-  public $image;
+  public $avatar;
   public $body;
-
-  public function __construct($id, $name, $image, $body){
+  public $title;
+  public function __construct($id, $name, $avatar, $body, $title){
     $this->id = $id;
     $this->name = $name;
-    $this->image = $image;
+    $this->avatar = $avatar;
     $this->body = $body;
+    $this->title = $title;
   }
 }
 
@@ -44,8 +45,9 @@ class Posts {
       $new_post = new Post(
         intval($row_object->id),
         $row_object->name,
-        $row_object->image,
-        $row_object->body
+        $row_object->avatar,
+        $row_object->body,
+        $row_object->title
       );
       $posts[] = $new_post;
       $row_object = pg_fetch_object($result);
@@ -55,16 +57,30 @@ class Posts {
   }
 
   static function create($posts){
+<<<<<<< HEAD
+    $query = "INSERT INTO post (name, title, avatar, body) VALUES ($1, $2, $3, $4)";
+    $query_params = array($posts->name, $posts->title, $posts->avatar, $posts->body);
+=======
     echo "working";
     $query = "INSERT INTO post (name, image, body) VALUES ($1, $2, $3)";
     $query_params = array($posts->name, $posts->image, $posts->body);
+>>>>>>> 7d0b2bd09dfd00f8461062abeaabc4a52affc7ce
     pg_query_params($query, $query_params);
     return self::all();
   }
 
+<<<<<<< HEAD
+
+  static function update($updated_post){
+      $query = "UPDATE post SET name = $1, title = $2, avatar = $3, body = $4 WHERE id = $5";
+      $query_params = array($updated_post->name,
+      $updated_post->title,
+       $updated_post->avatar, $updated_post->body, $updated_post->id);
+=======
   static function update($updated_post){
       $query = "UPDATE post SET name = $1, image = $2, body = $3 WHERE id = $4";
       $query_params = array($updated_post->name, $updated_post->image, $updated_post->body, $updated_post->id);
+>>>>>>> 7d0b2bd09dfd00f8461062abeaabc4a52affc7ce
       $result = pg_query_params($query, $query_params);
 
       return self::all();
