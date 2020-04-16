@@ -1,4 +1,4 @@
-Header always set Access-Control-Allow-Origin "https://pet-blog.herokuapp.com/"
+Header always set Access-Control-Allow-Origin "*"
 Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
 Header always set Access-Control-Allow-Headers "Content-Type"
 
@@ -8,10 +8,13 @@ RewriteCond %{REQUEST_METHOD} ^GET$
 RewriteRule ^posts$ controllers/posts.php?action=index
 
 RewriteCond %{REQUEST_METHOD} ^POST$
-RewriteRule ^posts$ controllers/posts.php?action=create
+RewriteRule ^posts$ controllers/posts.php?action=post
 
 RewriteCond %{REQUEST_METHOD} ^PUT$
 RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=update&id=$1
 
 RewriteCond %{REQUEST_METHOD} ^DELETE$
 RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=delete&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^OPTIONS$
+RewriteRule ^(.*)$ $1 [R=200,L]
