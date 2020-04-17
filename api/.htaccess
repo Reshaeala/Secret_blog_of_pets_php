@@ -1,4 +1,5 @@
-Header always set Access-Control-Allow-Origin "https://gentle-river-70476.herokuapp.com/api/posts"
+Header always set Access-Control-Allow-Origin "https://cors-anywhere.herokuapp.com/https://gentle-river-70476.herokuapp.com/api/posts"
+Header always set Access-Control-Allow-Origin "*"
 Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
 Header always set Access-Control-Allow-Headers "Content-Type"
 
