@@ -59,7 +59,7 @@ class Posts {
   static function create($posts){
 
     $query = "INSERT INTO post (name, title, avatar, body) VALUES ($1, $2, $3, $4)";
-    $query_params = array($posts->name, $posts->title, $posts->avatar, $posts->body);
+    $query_params = array($posts->name, $posts->avatar, $posts->body, $posts->title);
     pg_query_params($query, $query_params);
     return self::all();
   }
@@ -67,8 +67,8 @@ class Posts {
   static function update($updated_post){
       $query = "UPDATE post SET name = $1, title = $2, avatar = $3, body = $4 WHERE id = $5";
       $query_params = array($updated_post->name,
-      $updated_post->title,
-       $updated_post->avatar, $updated_post->body, $updated_post->id);
+      $updated_post->avatar,
+       $updated_post->body, $updated_post->title, $updated_post->id);
       $result = pg_query_params($query, $query_params);
       return self::all();
     }
