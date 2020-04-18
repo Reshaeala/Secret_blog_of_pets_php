@@ -15,3 +15,6 @@ RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=update&id=$1
 
 RewriteCond %{REQUEST_METHOD} ^DELETE$
 RewriteRule ^posts/([0-9]+)$ controllers/posts.php?action=delete&id=$1
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^about$ controllers/people.php?action=index
